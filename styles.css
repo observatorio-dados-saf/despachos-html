@@ -1,0 +1,29 @@
+
+@font-face {
+    font-family: cambria;
+    src: url('templates/cambria-font.ttf');
+} 
+
+body {
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 20px;
+    font-family: cambria;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#text {
+    text-indent: 60px;
+}
+
+#rodape {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
