@@ -3,12 +3,12 @@ import re
 
 class Despachos():
 
-    def __init__(self) -> None:
-        self.PATH_TEMPLATE = 'templates/'
+    def __init__(self, folder: str) -> None:
+        self.PATH_TEMPLATE = folder
 
     def create(self, type_: str, repl: dict) -> None:
         
-        base_html = open(f'''templates/{type_}.html''', 'r', encoding='utf-8').read()
+        base_html = open(f'''{self.PATH_TEMPLATE}/{type_}.html''', 'r', encoding='utf-8').read()
         
         for k, v in repl.items():
             base_html = re.sub(k, str(v), base_html)
@@ -21,7 +21,7 @@ class Despachos():
 
 if __name__ == '__main__':
 
-    despachos = Despachos()
+    despachos = Despachos(folder = 'templates')
 
     replaces = {
         'var_num_page': 14,
