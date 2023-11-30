@@ -52,10 +52,6 @@ class Despachos():
         self.PATH_TEMPLATE = path_folder
 
     def create(self, table_name: str, data: dict) -> None:
-        # timestamp: str = None 
-        # if timestamp != None:
-        #     sql = SqlController()
-        #     data = [i for i in sql.read(table_name)]
         
         path = f'''{self.PATH_TEMPLATE}/{table_name}.html'''
         base_html = open(path, 'r', encoding='utf-8').read()
