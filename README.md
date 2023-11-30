@@ -2,18 +2,19 @@
 
 ### Features Concluídas
 
+- Prioridades:
+    - [ ] Upload de planilhas para elaborar despachos (complexa);
+    - [ ] Despachos em lote (moderada);
+
 - [x] Digitação dos dados apenas (fácil);
 - [ ] Cálculos automáticos (fácil);
-- [ ] Economia com formatação de texto (fácil);
-- [ ] Despachos em lote (moderada);
 - [ ] Carga de novos modelos (complexa);
-- [ ] Upload de planilhas para elaborar despachos (complexa);
 
 ### Infraestrutura
 
 - [ ] Gerenciamento de binaries;
 - [ ] Múltiplos browsers;
-- [ ] Banco de Dados (Mongo, SQLite);
+- [ ] Banco de Dados (SQLite + Excel);
 - [ ] Gerencimanento de Histórico e Logs
 
 ### Interface Web
