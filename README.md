@@ -25,7 +25,7 @@ indicacao = {
     'nome_colaborador': 'Jersiton Tiago Pereira Matos'
 }
 
-despachos.create(table_name = 'notificacao', data = notificacao)
+despachos.create(table_name = 'conta', data = indicacao)
 ```
 
 ## 2. To-do List
