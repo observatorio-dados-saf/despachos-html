@@ -34,6 +34,7 @@ despachos.create(table_name = 'conta', data = indicacao)
 
 - Prioridades:
     - [ ] Upload de planilhas para elaborar despachos (complexa);
+    - [ ] Upload de Imagem;
     - [ ] Despachos em lote (moderada);
 
 - Outros:
