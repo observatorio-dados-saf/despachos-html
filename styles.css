@@ -9,6 +9,7 @@ body {
     margin-left: 40px;
     margin-right: 20px;
     font-family: cambria;
+    font-size: 16px
 }
 
 table, th, td {
@@ -16,6 +17,14 @@ table, th, td {
     border-collapse: collapse;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+#pagination {
+    font-size: 13px;
+}
+
+#header {
+    font-size: 13px
 }
 
 #header-table {
@@ -28,7 +37,7 @@ table, th, td {
 
 #rodape {
     position: fixed;
-    font-size: 14px;
+    font-size: 13px;
     width: 100%;
     bottom: 0;
 }
