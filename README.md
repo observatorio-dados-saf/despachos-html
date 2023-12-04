@@ -2,7 +2,7 @@
 
 ## 1. _How to Use_
 
-```
+```python
 from safdocs import Despachos, Sqlite
 
 sql = Sqlite()
@@ -52,7 +52,7 @@ despachos.create(table_name = 'conta', data = indicacao)
 
 _Gerenciamento de tabelas com sqlite3._
 
-```
+```python
 from safdocs import Sqlite
 
 sql = SqlController()
