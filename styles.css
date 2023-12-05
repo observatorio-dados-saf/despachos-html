@@ -22,6 +22,7 @@ table, th, td {
 #double-header {
     margin-left: 46.5%;
     margin-right: auto;
+    display: block;
 }
 
 #pagination {
