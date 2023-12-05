@@ -28,6 +28,8 @@ indicacao = {
 despachos.create(table_name = 'conta', data = indicacao)
 ```
 
+> Obs: _cabeçalhos e rodapés: False, elementos gráficos: True_
+
 ## 2. To-do List
 
 ### Features
@@ -44,9 +46,9 @@ despachos.create(table_name = 'conta', data = indicacao)
 ### Infraestrutura
 
 - [ ] Gerenciamento de binaries;
-- [ ] Múltiplos browsers;
+- [x] Múltiplos browsers;
 - [x] Banco de Dados (SQLite + Excel);
-- [ ] Gerencimanento de Histórico e Logs
+- [ ] Gerencimanento de Histórico e Logs (Opcional)
 
 ## 3. CRUD Sqlite
 
@@ -81,7 +83,8 @@ sql.update('conta', 'timestamp', '1701317981', 'data_despacho', 'São Luís (MA)
 
 ```
 
-### 4. Tabela de FontSizing
+## 4. Tabela de FontSizing
+
 | Points  | Pixels  |   Ems    |    %    |
 |:--------:|:--------:|:---------:|:--------:|
 | 6pt     | 8px     | 0.5em    | 50%     |

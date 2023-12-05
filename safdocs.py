@@ -1,7 +1,8 @@
-import webbrowser
+
 import re
 import sqlite3
 from datetime import datetime
+from time import sleep
 
 class Sqlite():
 
@@ -51,7 +52,7 @@ class Despachos():
     def __init__(self, path_folder: str) -> None:
         self.PATH_TEMPLATE = path_folder
 
-    def create(self, table_name: str, data: dict) -> None:
+    def create(self, filename, table_name: str, data: dict) -> None:
         
         path = f'''{self.PATH_TEMPLATE}/{table_name}.html'''
         base_html = open(path, 'r', encoding='utf-8').read()
@@ -59,8 +60,9 @@ class Despachos():
         for k, v in data.items():
             base_html = re.sub(k, str(v), base_html)
         
-        with open('index.html', 'w', encoding = 'utf-8') as file:
+        filepath = f'''{filename}_{table_name}_{str(int(datetime.now().timestamp()))}'''
+        with open(f'''{filepath}.html''', 'w', encoding = 'utf-8') as file:
             file.write(base_html)
             file.close()
         
-        webbrowser.open('index.html', 0)
+        sleep(1)
