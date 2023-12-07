@@ -83,6 +83,8 @@ class Despachos():
             file.write(base_html)
             file.close()
         
+        sleep(1)
+
         self.html_to_pdf(
             html_name = f'''{filepath}.html''', pdf_name = f'''{filepath}.pdf'''
         )
