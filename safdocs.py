@@ -3,9 +3,8 @@ import re
 import os
 import sqlite3
 import pdfkit
-
+import time
 from datetime import datetime
-from time import sleep
 
 class Sqlite():
 
@@ -83,7 +82,7 @@ class Despachos():
             file.write(base_html)
             file.close()
         
-        sleep(1)
+        time.sleep(1)
 
         self.html_to_pdf(
             html_name = f'''{filepath}.html''', pdf_name = f'''{filepath}.pdf'''
