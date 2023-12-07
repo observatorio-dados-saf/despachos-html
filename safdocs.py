@@ -30,7 +30,7 @@ class Sqlite():
     def insert(self, table_name: str, values_: list) -> None:
         self.CURSOR.execute(f'''INSERT INTO {table_name} VALUES ({','.join(list('?' * len(values_)))})''', values_)
 
-    def create_insert(self, table_name: str, data: dict) -> None:
+    def create(self, table_name: str, data: dict) -> None:
         self.create_table(table_name, list(data.keys()))
         self.insert(table_name, list(data.values()))
         self.CON.commit()

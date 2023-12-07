@@ -74,7 +74,7 @@ notificacao = {
     ...
 }
 
-sql.create_insert('notificacao', notificacao) # gravando dados
+sql.create('notificacao', notificacao) # gravando dados
 
 print(sql.show_tables()) # tabelas 
 
