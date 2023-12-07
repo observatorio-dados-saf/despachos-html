@@ -1,5 +1,6 @@
 
 import re
+import os
 import sqlite3
 import pdfkit
 
@@ -51,12 +52,26 @@ class Sqlite():
 
 class Despachos():
 
-    def __init__(self, path_folder: str) -> None:
+    def __init__(self, path_folder: str, path_converter: str) -> None:
         self.PATH_TEMPLATE = path_folder
         self.CSS = 'styles.css'
+        self.PATH_WKHTP = path_converter
+
+    def html_to_pdf(self, html_name: str, pdf_name: str) -> None:
+        pdfkit.from_file(
+            html_name, 
+            pdf_name, 
+            options = {
+                'page-size': 'A4', 
+                '--enable-local-file-access': True, 
+                '--user-style-sheet': self.CSS
+            }, 
+            configuration = pdfkit.configuration(
+                wkhtmltopdf = self.PATH_WKHTP
+            )
+        )
 
     def create(self, filename, table_name: str, data: dict) -> None:
-        
         path = f'''{self.PATH_TEMPLATE}/{table_name}.html'''
         base_html = open(path, 'r', encoding='utf-8').read()
         
@@ -68,11 +83,9 @@ class Despachos():
             file.write(base_html)
             file.close()
         
-        sleep(1)
-
-    def html_to_pdf(self, html_name: str, pdf_name: str) -> None:
-        config = pdfkit.configuration(
-            wkhtmltopdf = 'c:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
+        self.html_to_pdf(
+            html_name = f'''{filepath}.html''', pdf_name = f'''{filepath}.pdf'''
         )
-        options = {'page-size': 'A4', '--enable-local-file-access': True, '--user-style-sheet': self.CSS}
-        pdfkit.from_file(html_name, pdf_name, options = options, configuration = config, verbose = True)
+
+        os.remove(f'''{filepath}.html''')
+

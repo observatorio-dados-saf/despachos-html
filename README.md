@@ -1,12 +1,20 @@
 # Despachos Automatizados com HTML, CSS e Python
 
+## 0. Requirements
+
+Obs:
+- _Requer a instalação do software [wkhtmltox](https://wkhtmltopdf.org/)._ - _cópia em anexo._
+
 ## 1. _How to Use_
 
 ```python
 from safdocs import Despachos, Sqlite
 
 sql = Sqlite()
-despachos = Despachos(path_folder = 'templates/templates-financeiro')
+despachos = Despachos(
+    path_folder = 'templates/templates-financeiro', 
+    path_converter = 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
+)
 
 indicacao = {
     'timestamp': sql.timestamp(),
@@ -15,17 +23,18 @@ indicacao = {
     'destinatario': 'FUNDO ESTADUAL DE SAÚDE', 
     'assunto_despacho': 'INDICAÇÃO DE CONTA', 
     'num_desp': '1877/2023', 
-    'num_fonte': '1.6.00.301000', 
+    'num_fonte': '1.6.05.405000', 
     'num_agencia': '3846-6',
-    'num_conta': '8455-7', 
-    'info_recurso': 'Manutenção (Custeio) - Teto MAC', 
-    'num_port': 'PORTARIA GM/MS Nº 25, DE 20 DE JANEIRO DE 2023', 
-    'obj_port': 'Divulga os montantes anuais alocados aos Estados, Distrito Federal e Municípios, destinados ao cofinanciamento das ações e serviços públicos de saúde no grupo de atençãode média e alta complexidade ambulatorial e hospitalar (Teto MAC).', 
-    'data_despacho': '25 de dezembro de 2023',
+    'num_conta': '9497-8', 
+    'info_recurso': 'Manutenção (Custeio) - Gestão do SUS - Assistência Financeira Complementar para Pagamento do Piso da Enfermagem', 
+    'num_port': 'PORTARIA GM/MS Nº 2.031, DE 28 DE NOVEMBRO DE 2023', 
+    'obj_port': 'Dispõe sobre os valores referentes à nona parcela do exercício io de 2023, de que trata o Tıt́ulo IX-A da Portaria de Consolidação GM/MS nº 6, de 28 de setembro de 2017, relativos ao repasse da assistência financeira complementar.',
+    'data_despacho': 'São Luís, 25 de dezembro de 2023',
     'nome_colaborador': 'Jersiton Tiago Pereira Matos'
 }
 
-despachos.create(table_name = 'conta', data = indicacao)
+despachos.create(filename = 'Indicação Teste Piso', table_name = 'conta', data = indicacao)
+
 ```
 
 > Obs: _cabeçalhos e rodapés: False, elementos gráficos: True_
@@ -45,7 +54,9 @@ despachos.create(table_name = 'conta', data = indicacao)
 
 ### Infraestrutura
 
-- [ ] Gerenciamento de binaries;
+- [ ] Instalação do WKHTMLTOX
+- [x] Gerenciamento de binaries 50%;
+    - [ ] Download de Bytes;
 - [x] Múltiplos browsers;
 - [x] Banco de Dados (SQLite + Excel);
 - [ ] Gerencimanento de Histórico e Logs (Opcional)
@@ -60,15 +71,7 @@ from safdocs import Sqlite
 sql = SqlController()
 
 notificacao = {
-    'timestamp': sql.timestamp(),
-    'num_pagina': '250',
-    'num_proc': '265453/2023', 
-    'destinatario': 'DEPARTAMENTO DE CONTRATOS E CONVÊNIOS', 
-    'assunto_despacho': 'CIÊNCIA E PROVIDÊNCIAS', 
-    'num_desp': '1865/2023', 
-    'texto_despacho': 'Encaminhamos os autos para ciência e providências conforme fl. XX.',
-    'data_despacho': '25 de dezembro de 2023',
-    'nome_colaborador': 'Jersiton Tiago Pereira Matos'
+    ...
 }
 
 sql.create_insert('notificacao', notificacao) # gravando dados
