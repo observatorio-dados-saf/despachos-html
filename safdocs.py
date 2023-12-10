@@ -127,7 +127,7 @@ class Sqlite():
         self.CURSOR.execute(query)
         self.CON.commit()
 
-class Despachos():
+class Documentos():
     '''
     Gerador e Controlador de Despachos
     Parâmetros:

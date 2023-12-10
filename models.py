@@ -1,7 +1,7 @@
 
 import json
 
-class Models():
+class Modelos():
     '''
     classe que gerencia os campos de cada documento .html
     Parâmetros:

@@ -31,27 +31,21 @@ pip install pdfkit pandas openpyxl
 ## 3. _How to Use_
 
 ```python
-from safdocs import Despachos, Sqlite
-from models import Models
+from safdocs import Documentos, Sqlite
+from models import Modelos
 
 sql = Sqlite()
-despachos = Despachos(
+docs = Documentos(
     path_folder = 'templates/templates-financeiro', 
     path_converter = 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
 )
 
-modelo = Models('regularizacao')
-print(modelo.get_models()) # visualizar tamanho e campos disponíveis
-modelo.set_value('num_proc', '1234/2023') # set individual
-modelo.set_values(
-    [
-        sql.timestamp(), '20', '1654/2023', 'Execução', 
-        'Regularização', '1564/2023', 'São Luís, 25 de dezembro', 'Jersiton Matos'
-    ] # set todos os campos
-)
-print(modelo) # visualizar resultado
+modelo = Modelos('regularizacao')
+print(modelo.get_models())
+modelo.set_values([sql.timestamp(), '20', '1654/2023', 'Execução', 'Regularização', '1564/2023', 'São Luís, 25 de dezembro', 'Jersiton Matos'])
+print(modelo)
 
-despachos.create(filename = 'example', table_name = 'regularizacao', data = modelo())
+docs.create(filename = 'example', table_name = 'regularizacao', data = modelo())
 ```
 
 > Obs: _cabeçalhos e rodapés: False, elementos gráficos: True_
