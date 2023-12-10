@@ -13,6 +13,8 @@ col1, col2 = st.columns(2)
 
 with col1:
 
+    # definir a lista com base na área
+
     lista_modelos = st.selectbox('Modelos', ['blank', 'regularizacao'])
 
     modelo = Models(lista_modelos)
@@ -38,6 +40,8 @@ with col1:
                     )
                 )
 
+        # UPLOAD DE IMAGEM É REALMENTE NECESSÁRIO?
+
         # elif 'img' in i:
 # 
         #     up_img = st.file_uploader('area_img', ['jpg', 'png'])
@@ -59,6 +63,8 @@ with col2:
 
     st.json(modelo())
 
+    # COLOCAR UM DISPLAY PARA VER O RESULTADO
+
     file = st.text_input('Nome do Arquivo')
 
     criar = st.button('Gerar Documento')
@@ -70,3 +76,5 @@ with col2:
         )
 
         st.success('Arquivo gerado com sucesso!')
+
+    # ESTRUTURA DE DOWNLOAD E BYNARIES
