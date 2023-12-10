@@ -2,7 +2,7 @@
 
 ## 1. Requirements
 
-Requer a instalação do software [wkhtmltox](https://wkhtmltopdf.org/)._ - _cópia [aqui](utils/).
+Requer a instalação do software [wkhtmltox](https://wkhtmltopdf.org/) - cópia [aqui](utils/).
 
 ```
 pip install pdfkit pandas openpyxl
