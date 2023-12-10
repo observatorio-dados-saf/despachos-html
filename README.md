@@ -16,16 +16,16 @@ pip install pdfkit pandas openpyxl
 - [Build Pack Heroku](https://elements.heroku.com/buildpacks/rohandebroy/heroku-buildpack-wkhtmltopdf)
 - [NiceGui WebApp](https://github.com/zauberzeug/nicegui)
 
-#### Features Prioridade
+#### Features Prioridade (50%)
 
 - [x] Upload de planilhas para elaborar despachos;
 - [x] Upload de Imagem;
-- [ ] Despachos em lote;
-- [ ] Carga de novos modelos;
-- [x] Conversão HTML para PDF (WKHTMLTOX);
-- [ ] Download de Bytes;
 - [x] Múltiplos browsers;
 - [x] Banco de Dados (SQLite + Excel);
+- [x] Conversão HTML para PDF (WKHTMLTOX);
+- [ ] Download de Bytes;
+- [ ] Despachos em lote;
+- [ ] Carga de novos modelos;
 - [ ] Gerencimanento de Histórico e Logs (opcional)
 - [ ] Protótipo da Versão Web e da Versão Local
 
