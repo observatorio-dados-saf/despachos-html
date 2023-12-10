@@ -3,8 +3,12 @@ import re
 import os
 import sqlite3
 import pdfkit
+import locale
 import time
+import pandas
 from datetime import datetime
+
+locale.setlocale(locale.LC_MONETARY, 'pt_BR.UTF-8')
 
 class Sqlite():
 
@@ -69,6 +73,40 @@ class Despachos():
                 wkhtmltopdf = self.PATH_WKHTP
             )
         )
+
+    def money(self, value: float) -> str:
+        if re.match(r'\d', str(value)):
+            return locale.currency(value, grouping = True)
+        return value
+        
+    def convert_excel(self, filename: str) -> str:
+        df = pandas.read_excel(
+            filename
+        )
+
+        columns = list(df.columns)
+        columns = f'''\t<tr id="header-table">\n{''.join([f'''\t\t\t<th>{i}</th>\n''' for i in columns])}\t\t</tr>'''
+        
+        values_by_lines = [list(i) for i in df.values]
+        values = []
+        for line in values_by_lines:
+            values.append(f'''\t<tr>\n{''.join([f'''\t\t\t<td align="center">{self.money(i)}</td>\n''' for i in line])}\t\t</tr>''')
+        values = '\n'.join(values)
+
+        table_structure = f'''
+        <table align="center">
+        {columns}
+        {values}
+        </table>
+        '''
+
+        return table_structure
+    
+    def upload_img(self, filename: str, h: int) -> str:
+
+        return f'''
+        <img id="img_upload" src="{filename}" width="{2*h}" height="{h}">
+        '''
 
     def create(self, filename, table_name: str, data: dict) -> None:
         path = f'''{self.PATH_TEMPLATE}/{table_name}.html'''
