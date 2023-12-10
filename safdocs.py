@@ -29,7 +29,6 @@ class Sqlite():
     def create_table(self, table_name: str, keys_: list) -> None:
         '''
         cria uma tabela vazia no banco
-        
         Parâmetros:
             - table_name: nome da tabela a ser criada (faz referência ao nome do arquivo .html)
             - keys_: uma lista contendo o nome das colunas da tabela
@@ -45,7 +44,6 @@ class Sqlite():
     def columns(self, table_name: str) -> list:
         '''
         retorna o nome das colunas de uma tabela
-
         Parâmetros:
             - table_name: nome de uma tabela existente no banco
         '''
@@ -59,7 +57,6 @@ class Sqlite():
     def insert(self, table_name: str, values_: list) -> None:
         '''
         insere valores em uma tabela do banco
-
         Parâmetros:
             - table_name: nome de uma tabela existente no banco
             - values_: lista contendo os valores a serem lançados no banco
@@ -74,7 +71,6 @@ class Sqlite():
     def create(self, table_name: str, data: dict) -> None:
         '''
         executa create_table e insert em seguida a partir dos mesmos parâmetros
-        
         Parâmetros:
             - table_name: nome de uma tabela existente ou não, no banco
             - values_: lista contendo os valores a serem lançados no banco
@@ -94,7 +90,6 @@ class Sqlite():
                value_: str, all_: bool = False) -> None:
         '''
         exclui um valor específico de uma tabela a partir de uma chave e valor
-
         Parâmetros:
             - table_name: nome da tabela a ser editada
             - key_: coluna que será usada como chave
@@ -117,7 +112,6 @@ class Sqlite():
         
         '''
         edita um valor específico de uma tabela a partir de uma chave e valor
-
         Parâmetros:
             - table_name: nome da tabela a ser editada
             - key_: coluna que será usada como chave
@@ -136,7 +130,6 @@ class Sqlite():
 class Despachos():
     '''
     Gerador e Controlador de Despachos
-
     Parâmetros:
         - path_folder: caminho dos templates do setor
         - path_converter: caminho para o executável wkhtmltox
@@ -151,7 +144,6 @@ class Despachos():
     def html_to_pdf(self, html_name: str, pdf_name: str) -> None:
         '''
         converte um arquivo .html para .pdf usando o software wkhtmltox
-
         Parâmetros:
             - html_name: nome ou caminho do arquivo que será convertido
             - pdf_name: nome do novo arquivo .pdf
@@ -180,7 +172,6 @@ class Despachos():
     def convert_excel(self, filename: str) -> str:
         '''
         converte um arquivo .xlsx em uma string com tag table
-
         Parâmetros:
             - filename: nome ou caminho do arquivo
         '''
@@ -210,7 +201,6 @@ class Despachos():
     def upload_img(self, filename: str, h: int) -> str:
         '''
         escreve a tag img para um arquivo específico
-
         Parâmetros:
             - filename: nome ou caminho do arquivo
             - h: altura desejada para a imagem (a largura será o dobro da altura).
@@ -223,7 +213,6 @@ class Despachos():
     def create(self, filename, table_name: str, data: dict) -> None:
         '''
         cria um arquivo pdf a partir das informações inseridas
-
         Parâmetros:
             - filename: identificador do arquivo (str)
             - table_name: nome do arquivo html usado como base (str)
